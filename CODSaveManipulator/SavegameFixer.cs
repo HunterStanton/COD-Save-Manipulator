@@ -45,7 +45,7 @@ namespace CODSaveManipulator
                     return 500;
             }
 
-            // Somehow the switch failed completely, so let's just return 0
+            // Somehow the switch failed completely, so let's just return 0 ¯\_(ツ)_/¯
             return 0x0;
         }
     }
