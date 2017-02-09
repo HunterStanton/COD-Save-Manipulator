@@ -22,7 +22,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace CODSavegameManipulator
+namespace CODSaveManipulator
 {
 	/// <summary>
 	///     A stream which can be read from and whose endianness can be changed.

@@ -17,16 +17,20 @@ namespace CODSaveManipulator
                 return;
             }
 
-            // Endian of the savegame
-            // BIG = 1, LITTLE = 0
-            int endian = 0;
+            FileStream savegameStream = new FileStream(args[1], FileMode.Open, FileAccess.ReadWrite);
 
             // Open our binary reader so we can parse the saves
-            var reader = new BinaryReader(File.Open(args[1], FileMode.Open));
+            var reader = new EndianReader(savegameStream, Endian.LittleEndian);
+            var writer = new EndianWriter(savegameStream, Endian.LittleEndian);
 
             // Endian checker
             // If the first byte of the save is 0, this means it is big endian
-            if(reader.ReadByte() == 0) { endian = 1; }
+            // After getting the endian, reset the stream.
+            if(reader.ReadByte() == 0) { reader.Endianness = Endian.BigEndian; writer.Endianness = Endian.BigEndian; }
+            reader.BaseStream.Position = 0;
+
+            Rehash.RehashSavegame(reader, writer);
+            return;
 
         }
     }

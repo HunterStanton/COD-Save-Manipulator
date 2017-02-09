@@ -19,7 +19,7 @@ namespace CODSaveManipulator
         /// </summary>
         /// <param name="ver">The version stored in the savegame.svg. It is different per game, so we can use it to know which game the save is for.</param>
         /// <returns>The offset for the specific game.</returns>
-        static uint GetDataOffset(uint ver)
+        static public uint GetDataOffset(uint ver)
         {
             switch (ver)
             {

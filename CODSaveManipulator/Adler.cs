@@ -1,7 +1,7 @@
 ﻿using System;
 // Implements Adler32 checksumming, used in calculation of Ghosts savegame checksum
 
-namespace GhostsChecksumFixer
+namespace CODSaveManipulator
 {
     class Adler
     {
