@@ -23,7 +23,7 @@ namespace CODSaveManipulator
             uint sum = 0;
 
             // Get the original checksum from the file and store it
-            reader.BaseStream.Position = 12;
+            reader.BaseStream.Position = 8;
             uint origChecksum = reader.ReadUInt32();
 
             // Put the entire savegame after 0x400 (which is the data that is checksummed by the game) into a buffer
@@ -36,6 +36,7 @@ namespace CODSaveManipulator
 
             // Overwrite the adler32 sum that is stored in the savegame
             writer.BaseStream.Position = 0x8;
+
             sum = (uint)adler32.Value;
             writer.WriteUInt32(sum);
 

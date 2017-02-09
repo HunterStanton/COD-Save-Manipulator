@@ -26,9 +26,14 @@ namespace CODSaveManipulator
             // Endian checker
             // If the first byte of the save is 0, this means it is big endian
             // After getting the endian, reset the stream.
-            if(reader.ReadByte() == 0) { reader.Endianness = Endian.BigEndian; writer.Endianness = Endian.BigEndian; }
+            if (reader.ReadByte() == 0)
+            {
+                reader.Endianness = Endian.BigEndian;
+                writer.Endianness = Endian.BigEndian;
+            }
             reader.BaseStream.Position = 0;
 
+            Console.WriteLine(reader.Endianness);
             Rehash.RehashSavegame(reader, writer);
             return;
 
