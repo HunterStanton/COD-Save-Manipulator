@@ -10,7 +10,7 @@ namespace CODSaveManipulator
     /// <summary>
     /// A class that deals with fixing the Adler32 checksum on savegames and getting offsets for specific games.
     /// </summary>
-    class SavegameFixer
+    class Offsets
     {
         /// <summary>
         /// Gets the data offset for the specific game.

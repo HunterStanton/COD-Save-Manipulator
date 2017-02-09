@@ -35,6 +35,14 @@ namespace CODSaveManipulator
 
             Console.WriteLine(reader.Endianness);
             Rehash.RehashSavegame(reader, writer);
+
+            // Flush our stream
+            savegameStream.Flush();
+
+            // Close up our writer and reader
+            reader.Close();
+            writer.Close();
+
             return;
 
         }

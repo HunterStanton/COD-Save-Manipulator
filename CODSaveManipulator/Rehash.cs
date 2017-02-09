@@ -17,7 +17,7 @@ namespace CODSaveManipulator
             uint ver = reader.ReadUInt32();
 
             // Get the gamesave offset
-            uint offset = SavegameFixer.GetDataOffset(ver);
+            uint offset = Offsets.GetDataOffset(ver);
 
             // Storage variable for the calculated checksum
             uint sum = 0;
