@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CODSaveManipulator
 {
     /// <summary>
-    /// A class that deals with fixing the Adler32 checksum on savegames and getting offsets for specific games.
+    /// A class that deals with fixing getting offsets for specific games.
     /// </summary>
     class Offsets
     {

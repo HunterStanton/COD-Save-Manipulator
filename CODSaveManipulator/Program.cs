@@ -26,15 +26,27 @@ namespace CODSaveManipulator
             // Endian checker
             // If the first byte of the save is 0, this means it is big endian
             // After getting the endian, reset the stream.
-            if (reader.ReadByte() == 0)
+            if (reader.ReadInt16() == 0)
             {
                 reader.Endianness = Endian.BigEndian;
                 writer.Endianness = Endian.BigEndian;
             }
             reader.BaseStream.Position = 0;
 
-            Console.WriteLine(reader.Endianness);
-            Rehash.RehashSavegame(reader, writer);
+            // Check if STFS package
+            if (reader.ReadInt16() == 20291)
+            {
+                Console.Write("The file you selected is an Xbox 360 STFS package.\nPlease extract the savegame out of the STFS package before using this tool.");
+                savegameStream.Flush();
+                reader.Close();
+                writer.Close();
+                return;
+            }
+            reader.BaseStream.Position = 0;
+
+            if (args[0] == "-rehash") { Rehash.RehashSavegame(reader, writer); }
+            if (args[1] == "-info") { return; }
+            else { Console.WriteLine("Invalid argument " + args[1] + ". Valid arguments are -rehash and -info"); }
 
             // Flush our stream
             savegameStream.Flush();
