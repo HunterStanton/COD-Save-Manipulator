@@ -36,6 +36,7 @@ namespace CODSaveManipulator
             // Check if STFS package
             if (reader.ReadInt16() == 20291)
             {
+                // Close our writer/reader and flush the stream
                 Console.Write("The file you selected is an Xbox 360 STFS package.\nPlease extract the savegame out of the STFS package before using this tool.");
                 savegameStream.Flush();
                 reader.Close();

@@ -50,6 +50,7 @@
     <Compile Include="EndianReader.cs" />
     <Compile Include="EndianWriter.cs" />
     <Compile Include="IBaseStream.cs" />
+    <Compile Include="Info.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="Program.cs" />
